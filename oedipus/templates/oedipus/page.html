@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block sidebar %}
+<div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header"><i class="icon-tasks"></i> {% trans "Index" %}</li>
+        {{ toc|safe }}
+    </ul>
+</div><!--/.well -->
+
+<div class="well sidebar-nav">
+    {% if prev %}
+    <a href="{{ prev.link }}" title="{{ prev.title }}" class="btn">&laquo; {% trans "Previous" %}</a>
+    {% endif %}
+
+    {% if next %}
+    <a href="{{ next.link }}" title="{{ next.title }}" class="btn">{% trans "Next" %} &raquo;</a>
+    {% endif %}
+</div><!--/.well -->
+
+
+{% endblock sidebar %}
+
+{% block content %}
+
+{{ body|safe }}
+
+{% endblock content %}
